@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './pages/list/list.component';
 import { AddingComponent } from './pages/adding/adding.component';
 import { SearchingComponent } from './pages/searching/searching.component';
 import { HeoreComponent } from './pages/heore/heore.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
     path:'',
+    component: HomeComponent,
     children:[
      {
       path: 'list',
@@ -40,7 +41,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
     RouterModule.forChild(routes)
   ],
   exports:[
