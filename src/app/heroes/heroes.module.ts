@@ -5,6 +5,7 @@ import { SearchingComponent } from './pages/searching/searching.component';
 import { HeoreComponent } from './pages/heore/heore.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
+import { HeroesRoutingModule } from './heroes-routing.module';
 
 
 
@@ -17,7 +18,8 @@ import { ListComponent } from './pages/list/list.component';
     ListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HeroesRoutingModule
   ]
 })
 export class HeroesModule { }
