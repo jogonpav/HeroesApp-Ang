@@ -16,7 +16,7 @@ const routes: Routes = [
       component: ListComponent
      },
      {
-      path: 'adding',
+      path: 'add',
       component: AddingComponent
      },
      {
