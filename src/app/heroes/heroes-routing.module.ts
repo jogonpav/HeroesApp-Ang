@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './pages/list/list.component';
-import { AddingComponent } from './pages/adding/adding.component';
+import { AddComponent } from './pages/add/add.component';
 import { SearchingComponent } from './pages/searching/searching.component';
 import { HeoreComponent } from './pages/heore/heore.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -17,11 +17,11 @@ const routes: Routes = [
      },
      {
       path: 'add',
-      component: AddingComponent
+      component: AddComponent
      },
      {
-      path: 'edit',
-      component: AddingComponent
+      path: 'edit/:id',
+      component: AddComponent
      },
     { path: 'search',
       component: SearchingComponent
