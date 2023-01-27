@@ -12,6 +12,7 @@ import { MaterialModule } from '../material/material.module';
 import { CardHeroeComponent } from './card-heroe/card-heroe.component';
 import { ImagePipe } from './pipes/image.pipes';
 
+
 @NgModule({
   declarations: [
     AddComponent,
