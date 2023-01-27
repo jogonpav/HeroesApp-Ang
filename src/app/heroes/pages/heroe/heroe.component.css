@@ -1,0 +1,25 @@
+.container-flex-heroe {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    gap: 15px
+}
+
+.column-2 {
+    width: 47%;
+}
+
+img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+@media (max-width: 420px)  {
+    .container-flex-heroe {
+        flex-flow: column;
+    }
+    .column-2 {
+        width: 100%;
+    }
+    
+}
