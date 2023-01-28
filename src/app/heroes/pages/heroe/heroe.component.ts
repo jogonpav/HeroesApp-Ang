@@ -10,7 +10,7 @@ import { HeroesService } from '../../services/heroes.service';
   styleUrls: ['./heroe.component.css']
 })
 
-export class HeoreComponent implements OnInit {
+export class HeroeComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,

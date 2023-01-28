@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './pages/list/list.component';
 import { AddComponent } from './pages/add/add.component';
-import { SearchingComponent } from './pages/searching/searching.component';
-import { HeoreComponent } from './pages/heroe/heroe.component';
+import { SearchComponent } from './pages/search/search.component';
+import { HeroeComponent } from './pages/heroe/heroe.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
@@ -24,11 +24,11 @@ const routes: Routes = [
       component: AddComponent
      },
     { path: 'search',
-      component: SearchingComponent
+      component: SearchComponent
     },
     {
       path: ':id',
-      component: HeoreComponent
+      component: HeroeComponent
     },
     {
       path:'**',

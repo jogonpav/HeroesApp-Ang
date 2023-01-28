@@ -1,0 +1,24 @@
+<div class="column-flex">
+    <div>
+        <h1>Bucador de Héroes</h1>
+        <mat-divider></mat-divider>
+    </div>
+    <div>
+        <h3>Buscador</h3>
+         <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>term</mat-label>
+              <input type="text"
+                     placeholder="Pick one"
+                     aria-label="Number"
+                     matInput
+                     [(ngModel)] ="term"
+                     [matAutocomplete]="auto" 
+                     (click)="searching()">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let heroe of heroes " [value]="heroe">
+                  {{heroe.superhero}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+    </div>
+</div>
