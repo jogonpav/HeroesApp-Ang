@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Heroe } from '../interfaces/heore.interface';
@@ -8,8 +8,12 @@ import { environment } from '../../../environments/environment.development';
   providedIn: 'root'
 })
 export class HeroesService {
+
+  _limit: number = 6;
   
   constructor(private http: HttpClient) { }
+
+
 
   private baseUrl: string = environment.baseUrl;
 
@@ -21,6 +25,15 @@ export class HeroesService {
 
   getHeroePorId(id: string): Observable<Heroe>{
     return this.http.get<Heroe>(`${this.baseUrl}/heroes/${ id }`)
+  }
+
+  getSuggest(term: string): Observable<Heroe[]> {
+
+    const params = new HttpParams()
+    .set('q', term)
+    .set('_limit', this._limit);
+
+    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes`, {params: params});
   }
 
 }

@@ -1,4 +1,23 @@
 .column-flex {
+    width: 100%;
     display: flex;
-    flex-flow: column;
+    flex-flow: column
+}
+
+.card-heore {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .card-heore {
+        width: 80%;
+    }
+}
+
+@media (max-width: 420px) {
+    .card-heore {
+        width: 100%;
+    }
 }
