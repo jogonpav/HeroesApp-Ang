@@ -1,0 +1,12 @@
+.container-flex {
+    display: flex;
+    gap: 40px
+}
+
+.add-column-50 {
+    width: 50%;
+}
+
+.add-column-100 {
+    width: 100%;
+}
