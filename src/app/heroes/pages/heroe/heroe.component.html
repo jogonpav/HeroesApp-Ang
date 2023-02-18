@@ -1,4 +1,4 @@
-<mat-grid-list cols="1" *ngIf="!heroe; else divHeroe">
+<mat-grid-list cols="1" *ngIf="!hero; else divHeroe">
     <mat-grid-tile>
         <mat-spinner></mat-spinner>
     </mat-grid-tile>
@@ -9,20 +9,20 @@
     <div class="container-flex-heroe">
 
         <div class="column-2"> 
-            <h1> {{ heroe.superhero }} <small> {{ heroe.alter_ego }} </small> </h1>
+            <h1> {{ hero.superhero }} <small> {{ hero.alter_ego }} </small> </h1>
             <mat-divider></mat-divider>
             <br>
-            <img [src]=" heroe | image" alt='"This is an image about " + {{ heroe.superhero }}'>
+            <img [src]="hero | image" alt='"This is an image about " + {{ hero.superhero }}'>
 
         </div>
         <div class="column-2">
-            <h1> {{ heroe.publisher }} </h1>
+            <h1> {{ hero.publisher }} </h1>
             <mat-divider></mat-divider>
             <mat-list>
-                <mat-list-item> {{ heroe.first_appearance }}</mat-list-item>
-                <mat-list-item> {{ heroe.characters }}</mat-list-item>
-                <mat-list-item> {{ heroe.publisher }}</mat-list-item>
-                <mat-list-item> {{ heroe.alter_ego }}</mat-list-item>
+                <mat-list-item> {{ hero.first_appearance }}</mat-list-item>
+                <mat-list-item> {{ hero.characters }}</mat-list-item>
+                <mat-list-item> {{ hero.publisher }}</mat-list-item>
+                <mat-list-item> {{ hero.alter_ego }}</mat-list-item>
             </mat-list>
             <br>
             <button mat-button color="warn" (click)="return()">

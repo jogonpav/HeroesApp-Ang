@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Heroe } from '../interfaces/heore.interface';
+import { Hero } from '../interfaces/heore.interface';
 import { environment } from '../../../environments/environment.development';
 
 @Injectable({
@@ -17,23 +17,30 @@ export class HeroesService {
 
   private baseUrl: string = environment.baseUrl;
 
-  getHeroes(): Observable<Heroe[]>{
+  getHeroes(): Observable<Hero[]>{
     console.log(environment)
     console.log(`${this.baseUrl}/heroes`);
-    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes`);
+    return this.http.get<Hero[]>(`${this.baseUrl}/heroes`);
   }
 
-  getHeroePorId(id: string): Observable<Heroe>{
-    return this.http.get<Heroe>(`${this.baseUrl}/heroes/${ id }`)
+  getHeroePorId(id: string): Observable<Hero>{
+    return this.http.get<Hero>(`${this.baseUrl}/heroes/${ id }`)
   }
 
-  getSuggest(term: string): Observable<Heroe[]> {
+  getSuggest(term: string): Observable<Hero[]> {
 
     const params = new HttpParams()
     .set('q', term)
     .set('_limit', this._limit);
 
-    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes`, {params: params});
+    return this.http.get<Hero[]>(`${this.baseUrl}/heroes`, {params: params});
+  }
+
+  addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(`${this.baseUrl}/heroes`, hero);
+  }
+  updateHero(hero: Hero): Observable<Hero> {
+    return this.http.put<Hero>(`${this.baseUrl}/heroes/${hero.id}`, hero);
   }
 
 }

@@ -18,10 +18,10 @@
                                 #auto="matAutocomplete"
                                 (optionSelected)="optionSelected( $event )"
                                 >
-                <mat-option *ngFor="let heroe of heroes " [value]="heroe">
-                  {{heroe.superhero}}
+                <mat-option *ngFor="let hero of heros " [value]="hero">
+                  {{hero.superhero}}
                 </mat-option>
-                <mat-option value="" *ngIf="heroes.length === 0 && term.trim().length > 0">
+                <mat-option value="" *ngIf="heros.length === 0 && term.trim().length > 0">
                     Not found {{ term }}
                 </mat-option>
 
@@ -29,7 +29,7 @@
             </mat-form-field>
     </div>
 
-    <div *ngIf="heoreSelected" class="card-heore"> 
-        <app-card-heroe [heroe]="heoreSelected"></app-card-heroe>
+    <div *ngIf="heroSelected" class="card-heore"> 
+        <app-card-heroe [hero]="heroSelected"></app-card-heroe>
     </div>
 </div>

@@ -1,35 +1,46 @@
-<h1>New Hero <span>asd</span></h1>
+<h1>New Hero <span>{{ hero.superhero }}</span></h1>
 
 <div class="container-flex">
     <div class="column-flex-50">
-        <div class="flex-row-input"  >
+        <div class="flex-row-input flex-direction-column"  >
             <mat-form-field class="column-flex-100">
                 <mat-label >Super Hero</mat-label>
-                <input matInput type="text" required>
+                <input matInput type="text" [(ngModel)]="hero.superhero" required>
             </mat-form-field>
             <mat-form-field class="column-flex-100">
                 <mat-label >Alter Ego</mat-label>
-                <input matInput type="text" required>
+                <input matInput type="text" [(ngModel)]="hero.alter_ego" required>
             </mat-form-field>
 
         </div>
-       
+    
         <mat-form-field class="column-flex-100">
             <mat-label >First Appearance</mat-label>
-            <input matInput type="text" required>
+            <input matInput type="text" [(ngModel)]="hero.first_appearance" required>
         </mat-form-field>
         <mat-form-field class="column-flex-100">
             <mat-label >Character</mat-label>
-            <input matInput type="text" required>
+            <input matInput type="text" [(ngModel)]="hero.characters" required>
         </mat-form-field>
         <mat-form-field class="column-flex-100">
             <mat-label >Publisher</mat-label>
-            <mat-select>
-                <mat-option></mat-option>
+            <mat-select [(ngModel)]="hero.publisher" required>
+                <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">
+                    {{publisher.desc}}
+                </mat-option>
             </mat-select>
         </mat-form-field>
+        <mat-form-field class="column-flex-100">
+            <mat-label >Photo Url</mat-label>
+            <input matInput type="url" [(ngModel)]="hero.alt_img" required>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" (click)="save()">
+            <mat-icon >edit</mat-icon>
+            Guardar
+        </button>
     </div>
-    <div class="column-flex-50">
-        2
+    <div class="column-flex-50 flex-direction-column">
+        <img [src]="hero | image">
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Heroe } from '../interfaces/heore.interface';
+import { Hero } from '../interfaces/heore.interface';
 
 @Component({
   selector: 'app-card-heroe',
@@ -12,6 +12,6 @@ import { Heroe } from '../interfaces/heore.interface';
 })
 export class CardHeroeComponent {
 
-  @Input() heroe: Heroe = {} as Heroe;
+  @Input() hero: Hero = {} as Hero;
 
 }

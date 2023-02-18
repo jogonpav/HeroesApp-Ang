@@ -19,3 +19,18 @@
     flex-direction: row;
     gap: 8px;
 }
+
+img {
+    width: 70%;
+}
+
+
+
+@media (max-width: 580px) {
+    .column-flex-50 {
+        width: 100%;
+    }
+    .flex-direction-column{
+        flex-direction: column;
+    }
+}
