@@ -1,6 +1,7 @@
 .container-flex {
     display: flex;
     gap: 2%;
+    justify-content: left;
 }
 
 .column-flex-50 {

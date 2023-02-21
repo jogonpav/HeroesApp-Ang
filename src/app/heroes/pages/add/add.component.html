@@ -1,4 +1,4 @@
-<h1>New Hero <span>{{ hero.superhero }}</span></h1>
+<h1>{{hero.id? 'Edit':'Add'}} Hero <span>{{ hero.superhero }}</span></h1>
 
 <div class="container-flex  flex-reverse-column">
     <div class="column-flex-50">
@@ -30,7 +30,7 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-form-field class="column-flex-100">
+        <mat-form-field class="column-flex-100" required>
             <mat-label >Photo Url</mat-label>
             <input matInput type="url" [(ngModel)]="hero.alt_img" required>
         </mat-form-field>
@@ -38,7 +38,7 @@
         <div class="flex-row flex-direction-column">
             <button mat-raised-button class="column-flex-100" color="primary" (click)="save()">
                 <mat-icon >edit</mat-icon>
-                Guardar
+                {{hero.id? 'Update':'Add'}}
             </button>
             <button *ngIf="hero.id" mat-raised-button class="column-flex-100" color="warn" (click)="deleteHero()">
                 <mat-icon >delete</mat-icon>
