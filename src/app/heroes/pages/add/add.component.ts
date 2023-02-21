@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Hero, Publisher } from '../../interfaces/heore.interface';
 import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { filter, switchMap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmComponent } from '../../components/confirm/confirm.component';
 
 
 @Component({
@@ -38,7 +40,8 @@ export class AddComponent implements OnInit {
               private heroeService: HeroesService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
-              private _snackBar: MatSnackBar
+              private _snackBar: MatSnackBar,
+              private matDialog: MatDialog,
             ){}
 
   ngOnInit(): void {
@@ -72,20 +75,29 @@ export class AddComponent implements OnInit {
   }
 
   deleteHero(){
-    this.heroeService.deleteHero(this.hero.id!).subscribe(
-      resp => {
-        this.router.navigate(['/heroes']);
-      }
-    )
-  }
 
+   const dialog = this.matDialog.open(ConfirmComponent, {
+      width: '250px',
+      data: {...this.hero}
+    });
 
-  deleteHero(){
-    this.heroeService.deleteHero(this.hero.id!).subscribe(
-      resp => {
-        this.router.navigate(['/heroes']);
+    dialog.afterClosed().pipe(
+      filter(result => !!result),
+      switchMap(() => this.heroeService.deleteHero(this.hero.id!))
+    ).subscribe(() => {
+      this.router.navigate(['/heroes']);
+    });
+
+    /* dialog.afterClosed()
+    .subscribe(
+      (result) => {
+      if(result){
+        this.heroeService.deleteHero(this.hero.id!).subscribe(
+          resp => {
+            this.router.navigate(['/heroes']);
+          })
       }
-    )
+    }) */
   }
 
   showSnackBar( message: string){

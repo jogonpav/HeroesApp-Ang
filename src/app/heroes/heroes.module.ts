@@ -10,8 +10,9 @@ import { HeroeComponent } from './pages/heroe/heroe.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { MaterialModule } from '../material/material.module';
-import { CardHeroeComponent } from './card-heroe/card-heroe.component';
+import { CardHeroeComponent } from './components/card-heroe/card-heroe.component';
 import { ImagePipe } from './pipes/image.pipes';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 
 
@@ -23,7 +24,8 @@ import { ImagePipe } from './pipes/image.pipes';
     HeroeComponent,
     HomeComponent,
     ImagePipe,
-    ListComponent
+    ListComponent,
+    ConfirmComponent
   ],
   imports: [
     CommonModule,
