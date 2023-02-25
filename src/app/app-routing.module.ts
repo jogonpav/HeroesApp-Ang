@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth/guards/auth.guard';
 import { ErrorComponent } from './shared/pages/error/error.component';
 
 
@@ -10,7 +11,9 @@ const routes: Routes = [
   },
   {
     path: 'heroes',
-    loadChildren: () => import ('./heroes/heroes.module').then( module => module.HeroesModule )
+    loadChildren: () => import ('./heroes/heroes.module').then( module => module.HeroesModule ),
+    canLoad: [ AuthGuard ],
+    canActivate: [ AuthGuard ]
    },
   {
     path: '404',
